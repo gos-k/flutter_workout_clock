@@ -27,11 +27,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   DateTime _now = DateTime.now();
+  DateTime _temp = DateTime.now();
 
   void _onTimer(Timer timer) {
     setState(() {
       _now = DateTime.now();
     });
+  }
+
+  _handlePressed() {
+    _temp = DateTime.now();
   }
 
   @override
@@ -54,6 +59,14 @@ class _MyHomePageState extends State<MyHomePage> {
             Text('${_now.hour}', style: _textStyle),
             Text('${_now.minute}', style: _textStyle),
             Text('${_now.second}', style: _textStyle),
+            Text('${_temp.hour}:${_temp.minute}:${_temp.second}', style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold, color: Colors.black)),
+            FlatButton(
+              onPressed: _handlePressed,
+              color: Colors.red,
+              child: Text(
+                'Snap',
+              )
+            )
           ],
         ),
       ),
