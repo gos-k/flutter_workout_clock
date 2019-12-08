@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-void main() => runApp(MyApp());
+void main() => runApp(WorkoutClock());
 
-class MyApp extends StatelessWidget {
+class WorkoutClock extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -12,20 +12,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Workout Clock Home Page'),
+      home: WorkoutClockPage(title: 'Flutter Workout Clock Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class WorkoutClockPage extends StatefulWidget {
+  WorkoutClockPage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _WorkoutClockPageState createState() => _WorkoutClockPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _WorkoutClockPageState extends State<WorkoutClockPage> {
   DateTime _now = DateTime.now();
   DateTime _temp = DateTime.now();
 
