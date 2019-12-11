@@ -55,6 +55,7 @@ class _WorkoutClockPageState extends State<WorkoutClockPage> {
       ),
       body: GestureDetector(
         behavior: HitTestBehavior.opaque,
+        onTap: _handlePressed,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -66,7 +67,6 @@ class _WorkoutClockPageState extends State<WorkoutClockPage> {
             ],
           ),
         ),
-        onTap: _handlePressed,
       ),
     );
   }
