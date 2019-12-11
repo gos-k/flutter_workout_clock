@@ -53,23 +53,20 @@ class _WorkoutClockPageState extends State<WorkoutClockPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('${_now.hour}', style: _mainTextStyle),
-            Text('${_now.minute}', style: _mainTextStyle),
-            Text('${_now.second}', style: _mainTextStyle),
-            Text('${_temp.hour}:${_temp.minute}:${_temp.second}', style: _subTextStyle),
-            FlatButton(
-              onPressed: _handlePressed,
-              color: Colors.red,
-              child: Text(
-                'Snap',
-              )
-            )
-          ],
+      body: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('${_now.hour}', style: _mainTextStyle),
+              Text('${_now.minute}', style: _mainTextStyle),
+              Text('${_now.second}', style: _mainTextStyle),
+              Text('${_temp.hour}:${_temp.minute}:${_temp.second}', style: _subTextStyle),
+            ],
+          ),
         ),
+        onTap: _handlePressed,
       ),
     );
   }
