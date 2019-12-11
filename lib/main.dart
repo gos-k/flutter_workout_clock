@@ -47,7 +47,8 @@ class _WorkoutClockPageState extends State<WorkoutClockPage> {
 
   @override
   Widget build(BuildContext context) {
-    var _textStyle = TextStyle(fontSize: 150, fontWeight: FontWeight.bold, color: Colors.green);
+    var _mainTextStyle = TextStyle(fontSize: 150, fontWeight: FontWeight.bold, color: Colors.green);
+    var _subTextStyle = TextStyle(fontSize: 70, fontWeight: FontWeight.bold, color: Colors.black);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -56,10 +57,10 @@ class _WorkoutClockPageState extends State<WorkoutClockPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('${_now.hour}', style: _textStyle),
-            Text('${_now.minute}', style: _textStyle),
-            Text('${_now.second}', style: _textStyle),
-            Text('${_temp.hour}:${_temp.minute}:${_temp.second}', style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold, color: Colors.black)),
+            Text('${_now.hour}', style: _mainTextStyle),
+            Text('${_now.minute}', style: _mainTextStyle),
+            Text('${_now.second}', style: _mainTextStyle),
+            Text('${_temp.hour}:${_temp.minute}:${_temp.second}', style: _subTextStyle),
             FlatButton(
               onPressed: _handlePressed,
               color: Colors.red,
