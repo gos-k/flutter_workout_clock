@@ -51,8 +51,8 @@ class _WorkoutClockPageState extends State<WorkoutClockPage> {
 
   @override
   Widget build(BuildContext context) {
-    var _mainTextStyle = TextStyle(fontSize: 150, fontWeight: FontWeight.bold, color: Colors.green);
-    var _subTextStyle = TextStyle(fontSize: 70, fontWeight: FontWeight.bold, color: Colors.black);
+    var _mainTextStyle = TextStyle(fontSize: 160, fontWeight: FontWeight.bold, color: Colors.green);
+    var _subTextStyle = TextStyle(fontSize: 90, fontWeight: FontWeight.bold, color: Colors.black);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
