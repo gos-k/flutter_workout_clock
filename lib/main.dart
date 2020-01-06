@@ -39,6 +39,10 @@ class _WorkoutClockPageState extends State<WorkoutClockPage> {
     _temp = DateTime.now();
   }
 
+  _pad02(n) {
+    return n.toString().padLeft(2, "0");
+  }
+
   @override
   void initState() {
     Timer.periodic(Duration(milliseconds: 100), _onTimer);
@@ -60,10 +64,10 @@ class _WorkoutClockPageState extends State<WorkoutClockPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('${_now.hour}', style: _mainTextStyle),
-              Text('${_now.minute}', style: _mainTextStyle),
-              Text('${_now.second}', style: _mainTextStyle),
-              Text('${_temp.hour}:${_temp.minute}:${_temp.second}', style: _subTextStyle),
+              Text('${_pad02(_now.hour)}', style: _mainTextStyle),
+              Text('${_pad02(_now.minute)}', style: _mainTextStyle),
+              Text('${_pad02(_now.second)}', style: _mainTextStyle),
+              Text('${_pad02(_temp.hour)}:${_pad02(_temp.minute)}:${_pad02(_temp.second)}', style: _subTextStyle),
             ],
           ),
         ),
