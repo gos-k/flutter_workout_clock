@@ -28,10 +28,14 @@ class WorkoutClockPage extends StatefulWidget {
 class _WorkoutClockPageState extends State<WorkoutClockPage> {
   DateTime _now = DateTime.now();
   DateTime _temp = DateTime.now();
+  DateTime _diff = DateTime(2020);
 
   void _onTimer(Timer timer) {
+    final now = DateTime.now();
+    final diff = DateTime(2020).add(now.difference(_temp));
     setState(() {
-      _now = DateTime.now();
+      _now = now;
+      _diff = diff;
     });
   }
 
@@ -51,8 +55,9 @@ class _WorkoutClockPageState extends State<WorkoutClockPage> {
 
   @override
   Widget build(BuildContext context) {
-    var _mainTextStyle = TextStyle(fontSize: 160, fontWeight: FontWeight.bold, color: Colors.green);
-    var _subTextStyle = TextStyle(fontSize: 90, fontWeight: FontWeight.bold, color: Colors.black);
+    var _mainTextStyle = TextStyle(fontSize: 150, fontWeight: FontWeight.bold, color: Colors.green);
+    var stopTextStyle = TextStyle(fontSize: 90, fontWeight: FontWeight.bold, color: Colors.black);
+    var diffTextStyle = TextStyle(fontSize: 90, fontWeight: FontWeight.bold, color: Colors.blue);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -67,7 +72,8 @@ class _WorkoutClockPageState extends State<WorkoutClockPage> {
               Text('${_pad02(_now.hour)}', style: _mainTextStyle),
               Text('${_pad02(_now.minute)}', style: _mainTextStyle),
               Text('${_pad02(_now.second)}', style: _mainTextStyle),
-              Text('${_pad02(_temp.hour)}:${_pad02(_temp.minute)}:${_pad02(_temp.second)}', style: _subTextStyle),
+              Text('${_pad02(_temp.hour)}:${_pad02(_temp.minute)}:${_pad02(_temp.second)}', style: stopTextStyle),
+              Text('${_pad02(_diff.hour)}:${_pad02(_diff.minute)}:${_pad02(_diff.second)}', style: diffTextStyle),
             ],
           ),
         ),
