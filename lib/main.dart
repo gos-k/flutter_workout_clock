@@ -8,11 +8,11 @@ class WorkoutClock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Workout Clock',
+      title: 'Workout Clock',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
       ),
-      home: WorkoutClockPage(title: 'Flutter Workout Clock Home Page'),
+      home: WorkoutClockPage(title: 'Workout Clock'),
     );
   }
 }
