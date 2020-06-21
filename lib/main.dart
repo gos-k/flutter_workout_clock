@@ -57,7 +57,7 @@ class _WorkoutClockPageState extends State<WorkoutClockPage> {
   Widget build(BuildContext context) {
     var _mainTextStyle = TextStyle(fontSize: 150, fontWeight: FontWeight.bold, color: Colors.green);
     var stopTextStyle = TextStyle(fontSize: 90, fontWeight: FontWeight.bold, color: Colors.black);
-    var diffTextStyle = TextStyle(fontSize: 90, fontWeight: FontWeight.bold, color: Colors.blue);
+    var diffTextStyle = TextStyle(fontSize: 150, fontWeight: FontWeight.bold, color: Colors.blue);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -69,11 +69,25 @@ class _WorkoutClockPageState extends State<WorkoutClockPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('${_pad02(_now.hour)}', style: _mainTextStyle),
-              Text('${_pad02(_now.minute)}', style: _mainTextStyle),
-              Text('${_pad02(_now.second)}', style: _mainTextStyle),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Text('${_pad02(_now.hour)}', style: _mainTextStyle),
+                    Text('${_pad02(_diff.hour)}', style: diffTextStyle),
+                  ]),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Text('${_pad02(_now.minute)}', style: _mainTextStyle),
+                    Text('${_pad02(_diff.minute)}', style: diffTextStyle),
+                  ]),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Text('${_pad02(_now.second)}', style: _mainTextStyle),
+                    Text('${_pad02(_diff.second)}', style: diffTextStyle),
+                  ]),
               Text('${_pad02(_temp.hour)}:${_pad02(_temp.minute)}:${_pad02(_temp.second)}', style: stopTextStyle),
-              Text('${_pad02(_diff.hour)}:${_pad02(_diff.minute)}:${_pad02(_diff.second)}', style: diffTextStyle),
             ],
           ),
         ),
