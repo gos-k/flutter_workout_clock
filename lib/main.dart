@@ -18,7 +18,7 @@ class WorkoutClock extends StatelessWidget {
 }
 
 class WorkoutClockPage extends StatefulWidget {
-  WorkoutClockPage({Key key, this.title}) : super(key: key);
+  WorkoutClockPage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
