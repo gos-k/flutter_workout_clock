@@ -62,36 +62,38 @@ class _WorkoutClockPageState extends State<WorkoutClockPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: _handlePressed,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text('${_pad02(_now.hour)}', style: _mainTextStyle),
-                    Text('${_pad02(_diff.hour)}', style: diffTextStyle),
-                  ]),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
                     Text('${_pad02(_now.minute)}', style: _mainTextStyle),
-                    Text('${_pad02(_diff.minute)}', style: diffTextStyle),
-                  ]),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Text('${_pad02(_now.second)}', style: _mainTextStyle),
-                    Text('${_pad02(_diff.second)}', style: diffTextStyle),
-                  ]),
-              Text('${_pad02(_temp.hour)}:${_pad02(_temp.minute)}:${_pad02(_temp.second)}', style: stopTextStyle),
-            ],
+                    Text('${_pad02(_now.second)}', style: _mainTextStyle)
+                  ]
+              ),
+
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: _handlePressed,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text('${_pad02(_diff.hour)}', style: diffTextStyle),
+                      Text('${_pad02(_diff.minute)}', style: diffTextStyle),
+                      Text('${_pad02(_diff.second)}', style: diffTextStyle)
+                    ]
+                  )
+                 ),
+              ],
           ),
-        ),
-      ),
+          Text('${_pad02(_temp.hour)}:${_pad02(_temp.minute)}:${_pad02(_temp.second)}', style: stopTextStyle),
+        ]
+      )
     );
   }
 }
